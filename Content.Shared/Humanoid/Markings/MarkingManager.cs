@@ -62,8 +62,12 @@ namespace Content.Shared.Humanoid.Markings
             string species)
         {
             var speciesProto = _prototypeManager.Index<SpeciesPrototype>(species);
-            var markingPoints = _prototypeManager.Index(speciesProto.MarkingPoints);
             var res = new Dictionary<string, MarkingPrototype>();
+
+            if (speciesProto.MarkingPoints == null)
+                return res;
+
+            var markingPoints = _prototypeManager.Index(speciesProto.MarkingPoints);
 
             foreach (var (key, marking) in MarkingsByCategory(category))
             {
@@ -125,12 +129,15 @@ namespace Content.Shared.Humanoid.Markings
             string species, Sex sex)
         {
             var speciesProto = _prototypeManager.Index<SpeciesPrototype>(species);
-            var onlyWhitelisted = _prototypeManager.Index(speciesProto.MarkingPoints).OnlyWhitelisted;
             var res = new Dictionary<string, MarkingPrototype>();
+            if (speciesProto.MarkingPoints == null)
+                return res;
+
+            var markingPoints = _prototypeManager.Index(speciesProto.MarkingPoints);
 
             foreach (var (key, marking) in MarkingsByCategory(category))
             {
-                if (onlyWhitelisted && marking.SpeciesRestrictions == null)
+                if (markingPoints.OnlyWhitelisted && marking.SpeciesRestrictions == null)
                 {
                     continue;
                 }
@@ -197,6 +204,9 @@ namespace Content.Shared.Humanoid.Markings
             IoCManager.Resolve(ref prototypeManager);
 
             var speciesProto = prototypeManager.Index<SpeciesPrototype>(species);
+            if (speciesProto.MarkingPoints == null)
+                return false;
+
             var onlyWhitelisted = prototypeManager.Index(speciesProto.MarkingPoints).OnlyWhitelisted;
 
             if (!TryGetMarking(marking, out var prototype))
@@ -228,6 +238,9 @@ namespace Content.Shared.Humanoid.Markings
             IoCManager.Resolve(ref prototypeManager);
 
             var speciesProto = prototypeManager.Index<SpeciesPrototype>(species);
+            if (speciesProto.MarkingPoints == null)
+                return false;
+
             var onlyWhitelisted = prototypeManager.Index(speciesProto.MarkingPoints).OnlyWhitelisted;
 
             if (onlyWhitelisted && prototype.SpeciesRestrictions == null)

@@ -44,7 +44,7 @@ public sealed partial class SpeciesPrototype : IPrototype
     // sprite accessories.
 
     [DataField("sprites")]
-    public ProtoId<HumanoidSpeciesBaseSpritesPrototype> SpriteSet { get; private set; } = default!;
+    public ProtoId<HumanoidSpeciesBaseSpritesPrototype>? SpriteSet { get; private set; } = default!;
 
     /// <summary>
     ///     Default skin tone for this species. This applies for non-human skin tones.
@@ -63,7 +63,7 @@ public sealed partial class SpeciesPrototype : IPrototype
     ///     The limit of body markings that you can place on this species.
     /// </summary>
     [DataField("markingLimits")]
-    public ProtoId<MarkingPointsPrototype> MarkingPoints { get; private set; } = default!;
+    public ProtoId<MarkingPointsPrototype>? MarkingPoints { get; private set; } = default!;
 
     /// <summary>
     ///     Humanoid species variant used by this entity.

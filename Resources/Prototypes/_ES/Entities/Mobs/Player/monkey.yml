@@ -1,0 +1,68 @@
+# Mob prototype use for the experiment job (monkie)
+- type: entity
+  id: ESMobMonkeyExperiment
+  parent: BaseMobSpeciesOrganic
+  description: A monkey cursed with sapience--a happy accident borne of Nanotrasen testing cosmetics products on animals. Part of the crew like anyone else.
+  suffix: Experiment
+  components: # ideally this stuff would be properly pulled out of the ancestor shit but it isnt.
+  - type: HumanoidAppearance
+    species: MonkeyExperiment
+  - type: Hunger
+  - type: Thirst
+  - type: Icon
+    sprite: Mobs/Animals/monkey.rsi
+    state: monkey
+  - type: Inventory
+    templateId: monkey
+    speciesId: monkey
+  - type: Body
+    prototype: Primate
+    requiredLegs: 1
+  - type: Deathgasp
+    prototype: MonkeyDeathgasp
+  - type: DamageVisuals
+    disabled: true
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: monkey
+      sprite: Mobs/Animals/monkey.rsi
+    - map: [ "jumpsuit" ]
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+    - map: [ "ears" ]
+    - map: [ "eyes" ]
+    - map: [ "belt" ]
+    - map: [ "id" ]
+    - map: [ "outerClothing" ]
+    - map: [ "back" ]
+    - map: [ "neck" ]
+    - map: [ "mask" ]
+    - map: [ "head" ]
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+    - map: [ "clownedon" ]
+      sprite: "Effects/creampie.rsi"
+      state: "creampie_human"
+      visible: false
+    - type: FireVisuals
+      sprite: Mobs/Effects/onfire.rsi
+      normalState: Monkey_burning
+    - type: MeleeWeapon
+      soundHit:
+        path: /Audio/Effects/bite.ogg
+      angle: 30
+      animation: WeaponArcBite
+      damage:
+        types:
+          Blunt: 3
+          Piercing: 3
+    - type: Speech
+      speechSounds: Monkey
+      speechVerb: Monkey
+    - type: ESGenericVoice
+      voice: es-voice-obfuscator-name-replace-monkey

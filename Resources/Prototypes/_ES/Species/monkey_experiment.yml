@@ -1,0 +1,11 @@
+# mostly dummy species to make humanoid appearance stuff work properly
+# doesnt have base sprites or support for markings. its a monkey
+- type: species
+  id: MonkeyExperiment
+  name: es-species-name-monkey
+  roundStart: false
+  prototype: ESMobMonkeyExperiment
+  sprites: null
+  markingLimits: null
+  dollPrototype: ESMobMonkeyExperiment # doesnt matter since this is a dummy thing anyway (it just spawns the job proto)
+  skinColoration: HumanToned

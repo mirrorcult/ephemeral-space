@@ -7,6 +7,13 @@
     uiWindowPos: 1,2
     strippingWindowPos: 0,0
     displayName: Head
+  - name: eyes
+    slotTexture: glasses
+    slotFlags: EYES
+    stripTime: 3
+    uiWindowPos: 0,3
+    strippingWindowPos: 0,0
+    displayName: Eyes
   - name: ears
     slotTexture: ears
     slotFlags: EARS
@@ -57,4 +64,47 @@
     displayName: Suit
     whitelist:
       tags:
-        - MonkeyWearable
+      - MonkeyWearable
+  - name: pocket1
+    slotTexture: pocket
+    fullTextureName: template_small
+    slotFlags: POCKET
+    slotGroup: MainHotbar
+    stripTime: 3
+    uiWindowPos: 0,3
+    strippingWindowPos: 0,4
+    dependsOn: jumpsuit
+    displayName: Pocket 1
+    stripHidden: true
+  - name: pocket2
+    slotTexture: pocket
+    fullTextureName: template_small
+    slotFlags: POCKET
+    slotGroup: MainHotbar
+    stripTime: 3
+    uiWindowPos: 2,3
+    strippingWindowPos: 1,4
+    dependsOn: jumpsuit
+    displayName: Pocket 2
+    stripHidden: true
+  - name: belt
+    slotTexture: belt
+    fullTextureName: template_small
+    slotFlags: BELT
+    slotGroup: SecondHotbar
+    stripTime: 6
+    uiWindowPos: 3,1
+    strippingWindowPos: 1,5
+    displayName: Belt
+  - name: back
+    slotTexture: back
+    fullTextureName: template_small
+    slotFlags: BACK
+    slotGroup: SecondHotbar
+    stripTime: 6
+    uiWindowPos: 3,0
+    strippingWindowPos: 0,5
+    displayName: Back
+    blacklist:
+      tags:
+      - PetOnly

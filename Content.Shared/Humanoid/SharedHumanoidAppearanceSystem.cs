@@ -306,9 +306,13 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         }
 
         humanoid.Species = species;
-        humanoid.MarkingSet.EnsureSpecies(species, humanoid.SkinColor, _markingManager);
-        var oldMarkings = humanoid.MarkingSet.GetForwardEnumerator().ToList();
-        humanoid.MarkingSet = new(oldMarkings, prototype.MarkingPoints, _markingManager, _proto);
+
+        if (prototype.MarkingPoints != null)
+        {
+            humanoid.MarkingSet.EnsureSpecies(species, humanoid.SkinColor, _markingManager);
+            var oldMarkings = humanoid.MarkingSet.GetForwardEnumerator().ToList();
+            humanoid.MarkingSet = new(oldMarkings, prototype.MarkingPoints, _markingManager, _proto);
+        }
 
         if (sync)
             Dirty(uid, humanoid);

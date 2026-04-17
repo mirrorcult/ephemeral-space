@@ -1,0 +1,29 @@
+- type: job
+  id: ESExperiment
+  name: ESjob-name-experiment
+  description: ESjob-description-experiment
+  playTimeTracker: ESJobExperiment
+  startingGear: ESExperimentGear
+  jobEntity: ESMobMonkeyExperiment
+  icon: "JobIconScientist"
+  access:
+  - Research
+  - Maintenance
+
+- type: startingGear
+  id: ESExperimentGear
+  equipment:
+    id: SciencePDA
+    neck: ClothingNeckTieSci
+    ears: ClothingHeadsetScience
+    jumpsuit: ClothingUniformJumpsuitScientist
+    outerClothing: ClothingOuterCoatLabOpened
+    back: ClothingBackpackScience
+  storage:
+    back:
+    - ESBoxSurvival
+
+- type: chameleonOutfit
+  id: ESExperiment
+  job: ESExperiment
+  hidden: false

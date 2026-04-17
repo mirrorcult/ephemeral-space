@@ -196,7 +196,7 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
 
         var markingSet = new MarkingSet();
         var skinColor = appearance.SkinColor;
-        if (proto.TryIndex(species, out SpeciesPrototype? speciesProto))
+        if (proto.TryIndex(species, out SpeciesPrototype? speciesProto) && speciesProto.MarkingPoints != null)
         {
             markingSet = new MarkingSet(appearance.Markings, speciesProto.MarkingPoints, markingManager, proto);
             markingSet.EnsureValid(markingManager);
